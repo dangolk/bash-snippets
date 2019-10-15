@@ -1,0 +1,3 @@
+find: ‘/etc/polkit-1/localauthority’: Permission denied
+find: ‘/etc/cups/ssl’: Permission denied
+find: ‘/etc/ssl/private’: Permission denied
