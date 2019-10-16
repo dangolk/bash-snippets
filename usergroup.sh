@@ -88,5 +88,48 @@ sudo usermod -s /sbin/nologin sally
 # Enable login by changing shell login for user account
 sudo usermod -s /bin/bash sally
 
+# View user who logged in initially
+logname
+# View currently active user in the shell
+whoami
 
+# Switch user with su command
+sysadmin@localhost:$ su root
+logname
+# will give you logged in username -> sysadmin
+whoami
+# will give you root
 
+# su root is not the same as logging in as root
+echo $PATH
+# will show that you'll have different environment variables available depending on who's logged in vs running commands simply as a different user
+
+# To restrict command usage, resource usage and limit access on particular users/group
+sudo visudo
+
+# Create new user group
+sudo groupadd -g 1050 accounting
+# -g specifies groupID
+
+# Change groupID
+sudo groupmod -g 1051 accounting
+
+# Add user to a group
+sudo gpasswd -a grant accounting
+# -a for adding
+
+# Remember, add user to group can be done with usermod also
+sudo usermod -a -G accounting grant
+
+# Below variation adds user to group as Administrator
+sudo usermod -A -G accounting grant
+# notice -A
+
+# Delete group
+sudo groupdel accounting
+
+# Log into a new group, basically changes current group ID during a login session.
+newgrp <groupname>
+
+# To verify switching group
+id
