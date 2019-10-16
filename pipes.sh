@@ -36,4 +36,7 @@
 # find /etc | sort | tee etcshort.txt | wc -l
 
 # Another variation is to perform all actions above and then store errors into a different file
-find /etc 2> etcerr.txt | sort | tee etcshort.txt | wc -l
+# find /etc 2> etcerr.txt | sort | tee etcshort.txt | wc -l
+
+# To hide the output (all output disappears), re-direct to /dev/null
+# ls &> /dev/null
