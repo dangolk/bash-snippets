@@ -50,3 +50,43 @@ sudo chage -I -1 -m 0 -M 99999 -E -1 <username>
 # -m 0  -> minimum number of days to change password to 0, user can change password anytime
 # -M 99999  -> maximum number of days between password change -> 274 years
 # -E -1  -> account expires to never
+
+# Areas of interest:
+/etc/passwd
+/etc/shadow
+/etc/login.defs
+/etc/default/useradd
+/etc/gshadow
+
+
+# Add new user in linux
+sudo useradd <username>
+# Will create a new folder under /home/<username> with some init/startup files
+# .bash_logout .bash_profile .bashrc
+
+# Set password
+sudo passwd <username>
+# Verify either with sudo cat /etc/passwd
+# or with chage command
+sudo chage -l <username>
+
+# Delete user account
+sudo userdel -r bob
+# -r flag removes user data/content
+
+# Modifications to user account
+sudo usermod -a -G audio sally
+# will add (-a) username sally to group (-G) audio
+
+# Lock an account
+sudo usermod -L sally
+# -U for unlocking
+
+# Disable all forms of login for a user
+sudo usermod -s /sbin/nologin sally
+
+# Enable login by changing shell login for user account
+sudo usermod -s /bin/bash sally
+
+
+
