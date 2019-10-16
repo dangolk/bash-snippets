@@ -74,3 +74,37 @@ sudo killall crond
 # Kill all processes run by a user
 sudo killall -u sysadmin
 
+# Terminal:1 
+nice -2 top   # this sets nice level to +2
+# Terminal:2
+ps -C top --format pid,nice,cmd  # this returns nice level +2 for process top
+
+sudo nice --2 top   # this sets nice level to -2 (only privileged users can set niceness to range between -1 to -19)
+ps -C top --format pid,nice,cmd  # this returns nice level -2 for process top
+
+# Change process priority 
+sudo renice 5 4772
+# Higher the niceness -> lower the CPU requirements -> lower the process priority
+ps -C top --format pid,nice,cmd  # this returns nice level +5 for process top (if 4772 was its pid)
+
+# Terminal: 1
+watch ps -C dd --format pid,cmd,%cpu
+# This will run the ps command every 2 seconds with specified parameters
+# Terminal: 2
+dd if=/dev/zero of=/dev/null
+# Terminal: 1 will give you a live update of the process dd every 2 seconds in real-time
+# Press CTRL+Z to stop dd process on Terminal: 2, and watch CPU usage drop gradually (every 2s) on Terminal: 1
+# Terminal: 2
+jobs
+# will show that process dd has been stopped, jobID '1' is shown inside []
+bg 1
+# will run process dd back again in the background, notice '1' is jobID of process dd
+jobs
+# will show that process dd is running again, jobID '1' is shown inside []
+# also notice on Terminal: 1, the gradual increase in CPU usage (every 2s)
+# Terminal: 2
+fg
+# will bring process dd into foreground so you can interact with it again
+# Pressing CTRL+Z will stop the process (like on pause/hold), bg will keep it running it background, fg will bring it to foreground in interactive mode, CTRL+C will terminate the process
+dd if=/dev/zero of=/dev/null &
+# will instruct the process to run in the background
