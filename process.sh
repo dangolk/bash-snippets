@@ -42,3 +42,35 @@ top
 # Sory by memory usage, Shift+m (uppercase M)
 # Sory by time the process has been running, Shift+t (uppercase T)
 # Sory by Process ID Number, Shift+n (uppercase N)
+
+# Find all process IDs of a specific process
+pidof code
+pgrep code
+
+# List all signals available that you can send to a process
+kill -l
+# This will list all 64 signals (SIGTERM, SIGKILL, SIGINT, SIGHUP, ...)
+
+pidof firefox (return 4631, hypothetically)
+kill 4631
+pidof firefox (returns nothing)
+
+# Terminal 1:
+dd if=/dev/zero of=/dev/null
+# Terminal 2:
+pidof dd (return 4000)
+kill -USR1 4000
+# Command concatenate variation
+kill -USR1 $(pidof dd)
+
+# Finally terminate the process
+kill $(pidof dd)
+
+# Kill all processes, notice sudo because crond is a system service
+sudo killall crond
+# Default signal for killall is SIGTERM (kill -l -> 15) SIGTERM). Below combination of commands will show that
+# kill -l | grep '15)' | awk '{print $9, $10}'
+
+# Kill all processes run by a user
+sudo killall -u sysadmin
+
