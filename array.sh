@@ -41,14 +41,33 @@
 
 # <code>
 # Define an array.
-declare -a cmd
+# declare -a cmd
  
 # Assign elements to an array.
-cmd[0]="script.sh"
+# cmd[0]="script.sh"
 # cmd[1]="mysql-connect.sh"
 # cmd[2]="array.sh"
  
 # Call the array elements.
-for i in ${cmd[*]}; do
-  `pwd`/${i}
-done
+# for i in ${cmd[*]}; do
+#   `pwd`/${i}
+# done
+
+a=()
+b=("apple" "banana" "cherry")
+echo ${b[2]}
+b[5]="kiwi"
+b+=("mango")
+echo ${b[@]}
+echo ${b[@]: -1}
+
+# Associate Arrays, only supported in bash 4.0 and later 
+declare -A myarray
+myarray[color]=blue
+myarray["office building"]="HQ West"
+
+printf "\n"
+
+echo ${myarray["office building"]} is ${myarray[color]}
+
+printf "\n"
