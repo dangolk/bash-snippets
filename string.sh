@@ -24,19 +24,22 @@ w=${d:5}
 
 # Variable substitutions
 fruit="cherry apple banana banana cherry banana pie vegan mojo loco banana"
-echo $fruit
-echo ${fruit/banana/durian}
+# echo $fruit
+# echo ${fruit/banana/durian}
 # This replaces 1st instance of banana with durian
 
-echo ${fruit//banana/durian}
+# echo ${fruit//banana/durian}
 # This replaces all instances of banana with durian
 
 # Also supports use of wildcards, pattern matching and regex
-echo ${fruit/#apple/durian}
+# echo ${fruit/#apple/durian}
 # only replaces with durian if 1st occurence is apple
 
-echo ${fruit/%cherry/durian}
+# echo ${fruit/%cherry/durian}
 # only replaces with durian if last occurence is cherry
 
-echo ${fruit/c*/durian}
+# echo ${fruit/c*/durian}
 # replaces everything after the character 'c' with durian
+
+# Generating colored text in shell terminal
+echo -e "\033[34;42mColor Text\033[0m"
