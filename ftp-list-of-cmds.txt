@@ -1,0 +1,18 @@
+# ftp -n < ftp.txt
+# Run above command on a bash terminal
+
+open mirrors.xmission.com
+user anonymous nothinghere
+ascii
+cd gutenberg
+get GUTINDEX.00
+
+
+# Another variation of this using heredoc / here document
+ftp -n <<- StartHere
+        open mirrors.xmission.com
+        user anonymous nothinghere
+        ascii
+        cd gutenberg
+        get GUTINDEX.00
+StartHere
