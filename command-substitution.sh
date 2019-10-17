@@ -57,9 +57,14 @@
 
 
 # Support for Array syntax
-# declare -A ROOT=(
-#   [birds,tombit]=4 
-#   [birds,canary]=0
-#   [fish,moray]=5
-# )
-# echo ${ROOT[birds,tombit]}
+declare -A ROOT=(
+  [birds,tombit]=4 
+  [birds,canary]=0
+  [fish,moray]=5
+)
+echo ${ROOT[birds,tombit]}
+
+# Added snippet for counting length of output by storing it in a variable
+ou=${ROOT[birds,tombit]}
+
+echo  ${#ou}
