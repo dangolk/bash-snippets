@@ -40,3 +40,9 @@
 
 # To hide the output (all output disappears), re-direct to /dev/null
 # ls &> /dev/null
+
+
+# Check if input-stream is a pipe
+# echo "waddup" | [[ -p /dev/stdin ]] && echo "True" || echo "False" # True
+# cat input.txt | [[ -p /dev/stdin ]] && echo "True" || echo "False" # True
+# [[ -p /dev/stdin ]] && echo "True" || echo "False" # False

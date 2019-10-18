@@ -71,3 +71,11 @@ printf "\n"
 echo ${myarray["office building"]} is ${myarray[color]}
 
 printf "\n"
+
+# Read contents of cmd-line arguments into array
+declare -a passarray
+mapfile passarray < "$1"
+echo ${passarray[@]}
+# usage: ./array.sh /etc/passwd
+# each line in /etc/passwd will become individual array element in 'passarray'
+# further processing (like applying array operations) can be done on each array element to access and manipulate data
