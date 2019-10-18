@@ -69,38 +69,6 @@
 #     break
 # done
 
-# Conditional logic based on user selected option
-# echo "Choose your starter Pokemon: "
-# select starter in "Charmander (Fire)" "Bulbasaur (Grass/Poison)" "Squirtle (Water)" "quit"; do
-#     case $starter in
-#     "Charmander (Fire)") 
-#         echo -e "\033[30;41mCharmander\033[0m"
-#         echo -e "\033[5;34;43m(Fire)\033[0m"
-#         echo -e "\tThe flame that burns at the tip of its tail is an indication of its emotions. The flame wavers when Charmander is enjoying itself. If the Pokémon becomes enraged, the flame burns fiercely. It evolves into Charmeleon starting at level 16, which evolves into Charizard starting at level 36" 
-#         ;;
-
-#     "Bulbasaur (Grass/Poison)") 
-#         echo -e "\033[43;42mBulbasaur\033[0m"
-#         echo -e "\033[5;34;43m(Grass/Poison)\033[0m"
-#         echo -e "\tBulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger. It evolves into Ivysaur starting at level 16, which evolves into Venusaur starting at level 32." 
-#         ;;
-
-#     "Squirtle (Water)") 
-#     	echo -e "\e[44mSquirtle\033[0m"
-#         echo -e "\033[5;34;43m(Water)\033[0m"
-#         echo -e "\tSquirtle's shell is not merely used for protection. The shell's rounded shape and the grooves on its surface help minimize resistance in water, enabling this Pokémon to swim at high speeds. It evolves into Wartortle starting at level 16, which evolves into Blastoise starting at level 36." 
-#         ;;
-
-#     "quit") 
-#         break 
-#         ;;
-
-#     *) 
-#         echo "Invalid option!" 
-#         ;;
-#     esac
-# done
-
 # Implementing basic input validation
 # if [ $# -lt 3 ]; then
 #     cat <<- EOM
@@ -113,31 +81,7 @@
 #     echo "Account Number: $3"
 # fi
 
-# Input validation using a loop
-# read -p "Favorite Pokemon? " p
-# while [[ -z $p ]]; do
-#     read -p "I need an answer! Favorite Pokemon? " p
-# done
-# echo "I love $p!"
 
-# Input validation using loop, by specifying default value
-# read -p "Favorite Pokemon? [Charizard] " p
-# while [[ -z $p ]]; do
-#     p="Charizard"
-# done
-# echo "I love $p!"
-
-# read -p "Favorite Pokemon Move? [Hyper Beam] " m
-# while [[ -z $m ]]; do
-#     m="Hyper Beam"
-# done
-# echo "$m is a really powerful move!"
-
-# read -p "Favorite Pokemon Type? [DRAGON] " t
-# while [[ -z $t ]]; do
-#     t="DRAGON"
-# done
-# echo "$t types are the coolest!"
 
 # Validating a specific type of user input (use case: 4-digit year)
 # read -p "What year is it? [YYYY] " y
@@ -145,4 +89,67 @@
 #     read -p "Pleas type in a year dumb-ass! [YYYY] " y
 # done
 # echo "Feels good to be alive in $y!"
+
+
+# Input validation using a loop
+# read -p "Favorite Pokemon? " p
+# while [[ -z $p ]]; do
+#     read -p "I need an answer! Favorite Pokemon? " p
+# done
+# echo "I love $p!"
+
+
+# Conditional logic based on user selected option
+echo "Choose your starter Pokemon: "
+select starter in "Charmander (Fire)" "Bulbasaur (Grass/Poison)" "Squirtle (Water)" "quit"; do
+    case $starter in
+    "Charmander (Fire)") 
+        echo -e "\033[30;41mCharmander\033[0m"
+        echo -e "\033[5;34;43m(Fire)\033[0m"
+        echo -e "\tThe flame that burns at the tip of its tail is an indication of its emotions. The flame wavers when Charmander is enjoying itself. If the Pokémon becomes enraged, the flame burns fiercely. It evolves into Charmeleon starting at level 16, which evolves into Charizard starting at level 36" 
+        ;;
+
+    "Bulbasaur (Grass/Poison)") 
+        echo -e "\033[43;42mBulbasaur\033[0m"
+        echo -e "\033[5;34;43m(Grass/Poison)\033[0m"
+        echo -e "\tBulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger. It evolves into Ivysaur starting at level 16, which evolves into Venusaur starting at level 32." 
+        ;;
+
+    "Squirtle (Water)") 
+    	echo -e "\e[44mSquirtle\033[0m"
+        echo -e "\033[5;34;43m(Water)\033[0m"
+        echo -e "\tSquirtle's shell is not merely used for protection. The shell's rounded shape and the grooves on its surface help minimize resistance in water, enabling this Pokémon to swim at high speeds. It evolves into Wartortle starting at level 16, which evolves into Blastoise starting at level 36." 
+        ;;
+
+    "quit") 
+        break 
+        ;;
+
+    *) 
+        echo "Invalid option!" 
+        ;;
+    esac
+done
+
+# Input validation using loop, by specifying default value
+read -p "Favorite Pokemon? [Charizard] " p
+while [[ -z $p ]]; do
+    p="Charizard"
+done
+echo "I love $p!"
+
+read -p "Favorite Pokemon Move? [Hyper Beam] " m
+while [[ -z $m ]]; do
+    m="Hyper Beam"
+done
+echo "$m is a really powerful move!"
+
+read -p "Favorite Pokemon Type? [DRAGON] " t
+while [[ -z $t ]]; do
+    t="DRAGON"
+done
+echo "$t types are the coolest!"
+
+
+
 
